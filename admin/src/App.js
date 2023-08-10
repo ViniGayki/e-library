@@ -13,6 +13,7 @@ const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
 const BookList = React.lazy(() => import('./views/books/BookList'))
+const Addbooks = React.lazy(() => import('./views/books/Addbooks'))
 // const Login = React.lazy(() => import('./views/pages/login/Login'))
 // const Register = React.lazy(() => import('./views/pages/register/Register'))
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
@@ -27,6 +28,7 @@ class App extends Component {
             {/* <Route exact path="/login" name="Login Page" element={<Login />} />
             <Route exact path="/register" name="Register Page" element={<Register />} /> */}
             <Route exact path="/books" name="BookList" element={<BookList />} />
+            <Route exact path="/books" name="Addbooks" element={<Addbooks />} />
             <Route exact path="/404" name="Page 404" element={<Page404 />} />
             <Route exact path="/500" name="Page 500" element={<Page500 />} />
             <Route path="*" name="Home" element={<DefaultLayout />} />

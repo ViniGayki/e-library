@@ -6,6 +6,7 @@ const Typography = React.lazy(() => import('./views/theme/typography/Typography'
 
 // books
 const BookList = React.lazy(() => import('./views/books/BookList'))
+const Addbooks = React.lazy(() => import('./views/books/Addbooks'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -68,6 +69,7 @@ const routes = [
   { path: '/base/list-groups', name: 'List Groups', element: ListGroups },
   { path: '/books', name: 'Base', element: BookList, exact: true },
   { path: '/books/index', name: 'BookList', element: BookList },
+  { path: '/books/Addbooks', name: 'Addbooks', element: Addbooks },
   { path: '/base/navs', name: 'Navs', element: Navs },
   { path: '/base/paginations', name: 'Paginations', element: Paginations },
   { path: '/base/placeholders', name: 'Placeholders', element: Placeholders },

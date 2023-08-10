@@ -57,7 +57,12 @@ const _nav = [
         name: 'BookList',
         to: '/books/index',
       },
-     ],
+      {
+        component: CNavItem,
+        name: 'Addbooks',
+        to: '/books/Addbooks',
+      },
+    ],
   },
 
   {
