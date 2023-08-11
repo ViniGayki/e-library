@@ -1,43 +1,50 @@
 import React, { useState, useEffect } from 'react'
 import { CForm, CFormLabel, CFormInput, CFormTextarea, CButton } from '@coreui/react'
+import { json } from 'react-router-dom'
 
 const Addbooks = () => {
-  const [addbooks, setAddbooks] = useState([])
-  const [addnewproduct, setAddnewproduct] = useState()
-  const [addproduct, setAddproduct] = useState([])
+  const [book, setBook] = useState({})
+  const [name, setName] = useState()
 
-  const submitform = () => {
-    setAddproduct((prevState) => {
-      return [...prevState, addnewproduct]
-    })
+  const uploadBookDetails = async (e) => {
+    e.preventDefault()
+
+    const requestOption = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application / json' },
+      body: JSON.stringify({ name: name }),
+    }
+
+    const response = await fetch('http://localhost:8080/books', requestOption)
+    const resData = await response.json()
+    console.log(resData)
+    // setBook(resData)
   }
-
-  useEffect(() => {}, [])
 
   return (
     <React.Fragment>
       <h2>Addbooks</h2>
 
-      <CForm>
+      <CForm method="post" onSubmit={uploadBookDetails}>
         <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Book Name</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             id=""
             placeholder="Enter the book name"
           />
         </div>
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Publisher Name</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             id=""
             placeholder="Enter the book Publisher name"
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Auther Name</CFormLabel>
           <CFormInput
             type="text"
@@ -45,8 +52,8 @@ const Addbooks = () => {
             id=""
             placeholder="Enter the book Auther name"
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">No-of-page</CFormLabel>
           <CFormInput
             type="text"
@@ -54,8 +61,8 @@ const Addbooks = () => {
             id=""
             placeholder="Enter the No-of-Page"
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Language</CFormLabel>
           <CFormInput
             type="text"
@@ -63,8 +70,8 @@ const Addbooks = () => {
             id=""
             placeholder="Enter the book Language "
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Category</CFormLabel>
           <CFormInput
             type="text"
@@ -72,8 +79,8 @@ const Addbooks = () => {
             id=""
             placeholder="Enter the  book Category"
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Sub Category</CFormLabel>
           <CFormInput
             type="text"
@@ -81,8 +88,8 @@ const Addbooks = () => {
             id=""
             placeholder="Enter the  book Sub category"
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Publish_date</CFormLabel>
           <CFormInput
             type="text"
@@ -90,8 +97,8 @@ const Addbooks = () => {
             id=""
             placeholder="Enter the book Publish_date"
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Price</CFormLabel>
           <CFormInput
             type="text"
@@ -99,8 +106,8 @@ const Addbooks = () => {
             id=""
             placeholder="Enter the book Price"
           />
-        </div>
-        <div className="mb-3">
+        </div> */}
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="formFile">Book PDF</CFormLabel>
           <CFormInput
             type="file"
@@ -108,20 +115,21 @@ const Addbooks = () => {
             id="formFile"
             placeholder="Attached the Book of PDF"
           />
-        </div>
+        </div> */}
 
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlTextarea1">Note</CFormLabel>
           <CFormTextarea
             id="exampleFormControlTextarea1"
             onChange={(e) => setAddnewproduct(e.target.value)}
             rows={3}
           ></CFormTextarea>
-        </div>
-        {/* <button onClick={submitform}>Submit Data</button> */}
-        <CButton color="primary" onClick={submitform}>
+        </div> */}
+        <input name="submit" type="submit" />
+
+        {/* <CButton color="primary" onClick={submitform}>
           SAVE
-        </CButton>
+        </CButton> */}
       </CForm>
     </React.Fragment>
   )

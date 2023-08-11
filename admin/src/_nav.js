@@ -60,7 +60,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Addbooks',
-        to: '/books/Addbooks',
+        to: '/books/Add',
       },
     ],
   },
