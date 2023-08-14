@@ -53,13 +53,13 @@ const BookList = () => {
                 <CTableDataCell>{book.publisher_id}</CTableDataCell>
                 <CTableDataCell>{book.auther_id}</CTableDataCell>
                 <CTableDataCell>{book.no_of_pages}</CTableDataCell>
-                <CTableDataCell>{book.Language}</CTableDataCell>
+                <CTableDataCell>{book.language}</CTableDataCell>
                 <CTableDataCell>{book.category_id}</CTableDataCell>
                 <CTableDataCell>{book.sub_category_id}</CTableDataCell>
                 <CTableDataCell>{book.publish_date}</CTableDataCell>
                 <CTableDataCell>{book.price}</CTableDataCell>
                 <CTableDataCell>{book.book_pdf}</CTableDataCell>
-                <CTableDataCell>{book.Note}</CTableDataCell>
+                <CTableDataCell>{book.note}</CTableDataCell>
               </CTableRow>
             )
           })}

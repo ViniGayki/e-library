@@ -3,8 +3,18 @@ import { CForm, CFormLabel, CFormInput, CFormTextarea, CButton } from '@coreui/r
 import { json } from 'react-router-dom'
 
 const Addbooks = () => {
-  const [book, setBook] = useState({})
+  // const [book, setBook] = useState({})
   const [name, setName] = useState()
+  const [publisher_id, setPublisher_id] = useState()
+  const [auther_id, setAuther_id] = useState()
+  const [no_of_pages, setNo_of_pages] = useState()
+  const [language, setLanguage] = useState()
+  const [category_id, setCategory_id] = useState()
+  const [sub_category_id, setSub_category_id] = useState()
+  const [publish_date, setPublish_date] = useState()
+  const [price, setPrice] = useState()
+  const [book_pdf, setBook_pdf] = useState()
+  const [note, setNote] = useState()
 
   const uploadBookDetails = async (e) => {
     e.preventDefault()
@@ -12,7 +22,19 @@ const Addbooks = () => {
     const requestOption = {
       method: 'POST',
       headers: { 'Content-Type': 'application / json' },
-      body: JSON.stringify({ name: name }),
+      body: JSON.stringify({
+        name: name,
+        publisher_id: publisher_id,
+        auther_id: auther_id,
+        no_of_pages: no_of_pages,
+        language: language,
+        category_id: category_id,
+        sub_category_id: sub_category_id,
+        publish_date: publish_date,
+        price: price,
+        book_pdf: book_pdf,
+        note: note,
+      }),
     }
 
     const response = await fetch('http://localhost:8080/books', requestOption)
@@ -35,96 +57,103 @@ const Addbooks = () => {
             placeholder="Enter the book name"
           />
         </div>
-        {/* <div className="mb-3">
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Publisher Name</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setPublisher_id(e.target.value)}
             id=""
             placeholder="Enter the book Publisher name"
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Auther Name</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setAuther_id(e.target.value)}
             id=""
             placeholder="Enter the book Auther name"
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">No-of-page</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setNo_of_pages(e.target.value)}
             id=""
             placeholder="Enter the No-of-Page"
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Language</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setLanguage(e.target.value)}
             id=""
             placeholder="Enter the book Language "
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Category</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setCategory_id(e.target.value)}
             id=""
             placeholder="Enter the  book Category"
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Sub Category</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setSub_category_id(e.target.value)}
             id=""
             placeholder="Enter the  book Sub category"
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Publish_date</CFormLabel>
           <CFormInput
-            type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            type="date"
+            onChange={(e) => setPublish_date(e.target.value)}
             id=""
             placeholder="Enter the book Publish_date"
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlInput1">Price</CFormLabel>
           <CFormInput
             type="text"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
             id=""
             placeholder="Enter the book Price"
           />
-        </div> */}
-        {/* <div className="mb-3">
+        </div>
+
+        <div className="mb-3">
           <CFormLabel htmlFor="formFile">Book PDF</CFormLabel>
           <CFormInput
             type="file"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setBook_pdf(e.target.value)}
             id="formFile"
             placeholder="Attached the Book of PDF"
           />
-        </div> */}
+        </div>
 
-        {/* <div className="mb-3">
+        <div className="mb-3">
           <CFormLabel htmlFor="exampleFormControlTextarea1">Note</CFormLabel>
           <CFormTextarea
             id="exampleFormControlTextarea1"
-            onChange={(e) => setAddnewproduct(e.target.value)}
+            onChange={(e) => setNote(e.target.value)}
             rows={3}
           ></CFormTextarea>
-        </div> */}
+        </div>
+
         <input name="submit" type="submit" />
 
         {/* <CButton color="primary" onClick={submitform}>

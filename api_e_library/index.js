@@ -36,7 +36,29 @@ http
         const requstBody = JSON.parse(chunk.toString());
         con.connect(function (err) {
           con.query(
-            "INSERT INTO books (name)values('" + requstBody.name + "')",
+            "INSERT INTO books (name,publisher_id,auther_id,no_of_pages,language,category_id,sub_category_id,publish_date,price,book_pdf,note)values('" +
+              requstBody.name +
+              "','" +
+              requstBody.publisher_id +
+              "','" +
+              requstBody.auther_id +
+              "','" +
+              requstBody.no_of_pages +
+              "','" +
+              requstBody.language +
+              "','" +
+              requstBody.category_id +
+              "','" +
+              requstBody.sub_category_id +
+              "','" +
+              requstBody.publish_date +
+              "','" +
+              requstBody.price +
+              "','" +
+              requstBody.book_pdf +
+              "','" +
+              requstBody.note +
+              "')",
             function (err, result, fields) {
               console.log(result);
               res.setHeader("Access-Control-Allow-Origin", "*");
